@@ -4,26 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>All Rest</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-        <%- include('../partial/navbar') %>
+    <%- include('../partial/navbar') %>
+        <h1>All Resturaunts</h1>
 
-    <h1>All Resturaunts</h1>
-    <% for(let oneRest of rest){%>
-        <a href="/resturaunts/<%=oneRest.id%>">
-            <%=oneRest.name%>  
-            
-            <%if (oneRest.isOpen == false){ %>
-               - Closed
-            <%} %>
+        <div class="cards-container">
 
-        </a>
-        
+            <% for(let oneRest of rest){%>
+                <div class="cards">
+                    <a href="/resturaunts/<%=oneRest.id%>">
+                        <%=oneRest.name%>
+                            <br>
+                            <br>
+                            <%if (oneRest.isOpen==false){ %>
+                                <p id="close">Closed</p>
+                                <%}else{ %>
+                                    <p id="open">Open</p>
 
-        <br>
-        <%}%>
+                                    <%}%>
+                    </a>
+
+                </div>
+                <%}%>
+        </div>
 </body>
 
 </html>

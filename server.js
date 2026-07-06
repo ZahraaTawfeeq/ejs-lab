@@ -20,8 +20,8 @@ app.get('/resturaunts/:id', (req, res) => {
         return oneRest.id === Number(req.params.id)
     })
 
-    console.log(foundRest)
-    res.render('resturaunts-details.ejs',  resta = foundRest )
+    // console.log(foundRest)
+    res.render('resturaunts-details.ejs', resta = foundRest)
 })
 
 

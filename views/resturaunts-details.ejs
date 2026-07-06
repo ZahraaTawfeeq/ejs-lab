@@ -4,41 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        <%= resta.name %>
+    </title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body>        <%- include('../partial/navbar') %>
+<body>
+    <%- include('../partial/navbar') %>
 
-    <h1>Resturaunt details</h1>
-    <p>
-        <%= resta.name%>
-    </p>
-    <p>
-        <%= resta.address%>
-    </p>
-    <p>
-        <%if (resta.isOpen == false){ %>
-            <p>Closed</p>
-            <%} else{%>
-                <p> Open</p>
-                <%}%>
-            </p>
-    <p>
-        <%= resta.phone%>
-    </p>
+        <div class="content">
+            <div class="details-card">
+                <h1>
+                    <%= resta.name %>
+                </h1>
 
-    <%for (let oneItem of resta.menu){%>
+                <p><span id="bold">📍 Address:</span>
+                    <%= resta.address %>
+                </p>
 
-        <li>
-            <%=oneItem.name%>
-                <br>
-                Price: <%=oneItem.price%>
-                    <br>
-                    Rating: <%=oneItem.rating%>
+                <p>
+                    <span id="bold">🔑</span>
+                    <% if (!resta.isOpen) { %>
+                        <span id="close">Closed</span>
+                        <% } else { %>
+                            <span id="open">Open</span>
+                            <% } %>
+                </p>
 
-        </li>
-        <hr>
-        <% }%>
+                <p><span id="bold">📞 Phone:</span>
+                    <%= resta.phone %>
+                </p>
+
+                <h2>Menu</h2>
+
+                <% for (let oneItem of resta.menu) { %>
+                    <div class="menu-item">
+                        <h3>
+                            <%= oneItem.name %>
+                        </h3>
+                        <p>💲 Price: <%= oneItem.price %>
+                        </p>
+                        <p>⭐ Rating: <%= oneItem.rating %>
+                        </p>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
 </body>
 
 </html>
