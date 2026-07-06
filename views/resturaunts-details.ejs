@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>        <%- include('../partial/navbar') %>
+
+    <h1>Resturaunt details</h1>
+    <p>
+        <%= resta.name%>
+    </p>
+    <p>
+        <%= resta.address%>
+    </p>
+    <p>
+        <%if (resta.isOpen == false){ %>
+            <p>Closed</p>
+            <%} else{%>
+                <p> Open</p>
+                <%}%>
+            </p>
+    <p>
+        <%= resta.phone%>
+    </p>
+
+    <%for (let oneItem of resta.menu){%>
+
+        <li>
+            <%=oneItem.name%>
+                <br>
+                Price: <%=oneItem.price%>
+                    <br>
+                    Rating: <%=oneItem.rating%>
+
+        </li>
+        <hr>
+        <% }%>
+</body>
+
+</html>
